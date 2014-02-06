@@ -4,11 +4,11 @@ using System.Collections;
 public class Lesson2GameManager : MonoBehaviour {
 
 	public GameObject targetPrefab;
-	private Lesson2Score ScoreScript;
+	private GameObject ScoreObj;
 	private float DropPosY = 8.0f;
 	
 	void Start () {
-		ScoreScript = GameObject.Find("GetScore").GetComponent<Lesson2Score>();
+		ScoreObj = GameObject.Find("Score");
 	}
 	
 	void Update () {
@@ -19,6 +19,6 @@ public class Lesson2GameManager : MonoBehaviour {
 	}
 
 	void GetScore(int GetPoint){
-		ScoreScript.UpdateScore(GetPoint);
+		ScoreObj.SendMessage("UpdateScore",GetPoint);
 	}
 }
